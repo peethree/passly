@@ -16,5 +16,6 @@ func generateRandomKey(length int) (string, error) {
 		return "", err
 	}
 
+	// %x for hexadecimal representation
 	return fmt.Sprintf("%x", keySlice), nil
 }
