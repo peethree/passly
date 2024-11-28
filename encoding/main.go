@@ -5,10 +5,12 @@ import (
 	"strings"
 )
 
+// encoding
+
 func getHexString(b []byte) string {
 	var result []string
 	for _, v := range b {
-		// formats hexadecimal: 20
+		// formats hexadecimal: 20, padded by 0
 		result = append(result, fmt.Sprintf("%02x", v))
 	}
 	return strings.Join(result, ":")
