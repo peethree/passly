@@ -15,7 +15,6 @@ func getHexBytes(s string) ([]byte, error) {
 	// append all the parts that were split to result
 	result = append(result, stringParts...)
 	fmt.Printf("%s", result)
-	// join the parts together
 	// [48 65 6c 6c 6f][57 6f 72 6c 64][50 61 73 73 77 6f 72 64][ZZ YY XX]-
 
 	joinedResult := strings.Join(result, "")
