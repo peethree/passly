@@ -13,3 +13,5 @@ func crypt(plaintext, key []byte) []byte {
 }
 
 // byteResult[i] = plaintext[i] ^ key[i] performs a bitwise XOR of the i-th byte of plaintext and key. The result is stored in the i-th position of byteResult
+
+// The big problem with the One Time Pad is that the key needs to be the same length as the message. That means to encrypt a 128 GB hard drive, I'd need a 128 GB key!! That's just not practical.
