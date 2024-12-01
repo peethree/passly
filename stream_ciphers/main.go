@@ -2,12 +2,17 @@ package main
 
 import (
 	"errors"
+	"fmt"
 )
 
 // decrypt one character at a time
 func crypt(textCh, keyCh <-chan byte, result chan<- byte) {
 
 	defer close(result)
+
+	// keep track of the number of bytes encrypted so far
+	// a state cypher keeps track of its progress
+	num := 1
 
 	for {
 		textByte, ok := <-textCh
@@ -20,6 +25,8 @@ func crypt(textCh, keyCh <-chan byte, result chan<- byte) {
 			return
 		}
 		result <- textByte ^ keyByte
+		fmt.Printf("Crypted byte: %d\n", num)
+		num++
 	}
 }
 
