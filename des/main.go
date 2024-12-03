@@ -19,7 +19,7 @@ func encrypt(key, plaintext []byte) ([]byte, error) {
 	// pad plaintext with 0s
 	paddedText := padMsg(plaintext, blockSize)
 
-	// generate random iv, append to beginning of ciphertext (same length as blocksize)
+	// generate random iv (iv is a bunch of uninitialized 0s in this case), append to beginning of ciphertext (same length as blocksize)
 	ciphertext := make([]byte, blockSize+len(paddedText))
 	iv := ciphertext[:blockSize]
 
