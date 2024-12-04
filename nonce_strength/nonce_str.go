@@ -5,6 +5,7 @@ import (
 	"math/rand"
 )
 
+// nonce = arbitrary numbr used only once in cryptographic op
 func nonceStrength(nonce []byte) int {
 	// number of bytes in nonce
 	length := len(nonce)
