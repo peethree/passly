@@ -9,10 +9,18 @@ import (
 	mrand "math/rand"
 )
 
-func encrypt(m, e, n *big.Int) *big.Int {
-	// Return the result of m^e (mod n)
+// Get the private exponent
+func getD(e, tot *big.Int) *big.Int {
+	// func (z *Int) ModInverse(g, n *Int) *Int
+	// d is the modular multiplicative inverse of e (mod tot)
 	x := new(big.Int)
-	return x.Exp(m, e, n)
+	return x.ModInverse(e, tot)
+}
+
+func encrypt(m, e, n *big.Int) *big.Int {
+	c := new(big.Int)
+	c.Exp(m, e, n)
+	return c
 }
 
 func gettot(p, q *big.Int) *big.Int {
