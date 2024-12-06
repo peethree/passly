@@ -22,7 +22,7 @@ func hash(input []byte) [4]byte {
 
 	// index i%4 to avoid going out of range
 	for i := 0; i < len(input); i++ {
-		final[i%4] = final[i%4] ^ shifted[i]
+		final[i%4] ^= shifted[i]
 	}
 
 	return final
